@@ -32,3 +32,9 @@ unzip gatk-4.0.6.0.zip
 ```
 
 **sra-tools** : The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives, SRA (Sequence Read Archive).
+
+
+```
+#查看文件夹和文件大小
+du -h 
+```
