@@ -29,6 +29,13 @@ conda install -y multiqc qualimap trim_galore
 mkdir -p Software/gatk4 && cd Sofeware/gatk4
 wget  https://github.com/broadinstitute/gatk/releases/download/4.1.9.0/gatk-4.1.9.0.zip
 unzip gatk-4.0.6.0.zip
+
+#add gatk to you PATH
+
+export PATH="/path/to/gatk-package/:$PATH" 
+
+# where /path/to/gatk-package/ is the path to the location of the gatk executable
+
 ```
 
 **sra-tools** : The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives, SRA (Sequence Read Archive).
