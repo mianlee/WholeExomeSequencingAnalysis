@@ -78,7 +78,6 @@ The ```bundle/``` directory contains five subdirectories, one for each build of 
 
 **ftp tool**
 
-If the first method doesn't work for you or you need to download those data onto your server, you can use the method below and aftet testing, it worked perfect for me.
 
 Using lftp tool to visit and download reference data from ftp. If you don't have lftp command installed on your server or local computer, you need to intall it first. After installation, enter the following command in your terminal:
 
@@ -104,6 +103,14 @@ If you want to download all files under a certain folder, you can use mirror com
 ```
 mirror hg19
 ```
+
+**Reference**
+
+[GATK Resource Bundle](https://gatk.broadinstitute.org/hc/en-us/articles/360036212652-Resource-Bundle).
+
+[GATK数据下载](https://blog.csdn.net/xxxie_/article/details/100111991).
+
+[Differences between b37 and hg19](https://github.com/bahlolab/bioinfotools/blob/master/GATK/resource_bundle.md).
 
 
 
