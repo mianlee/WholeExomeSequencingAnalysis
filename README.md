@@ -106,7 +106,7 @@ mirror hg19
 
 **Reference**
 
-[GATK Resource Bundle](https://gatk.broadinstitute.org/hc/en-us/articles/360036212652-Resource-Bundle).
+[GATK Resource Bundle](https://gatk.broadinstitute.org/hc/en-us/articles/360035890811-Resource-bundle).
 
 [GATK数据下载](https://blog.csdn.net/xxxie_/article/details/100111991).
 
