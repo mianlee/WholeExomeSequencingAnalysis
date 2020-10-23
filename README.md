@@ -9,7 +9,7 @@
 
 ## WES 的应用方向
 
-1. 人类基因组中低频变异分析
+1.人类基因组中低频变异分析
 
 - 尤其是那些芯片平台中不涵盖的稀有变异
 
@@ -73,7 +73,7 @@ export PATH="/path/to/gatk-package/:$PATH"
 
 I found out that the GATK resource bundle is a collection of standard files for working with human resequencing data with the GATK. They provide several versions of the bundle corresponding to the various reference builds. So you don't have to build it by your self......
 
-The bundle/ directory contains five subdirectories, one for each build of the human genome that we have resources for: b36, b37, hg18, hg19 and hg38 (aka GRCh38). Here you can go to the hg19 folder and download related files, in our case, ```ucsc.hg19.fasta.gz```, ```ucsc.hg19.fasta.fai.gz``` and ```ucsc.hg19.dict.gz```.
+The ```bundle/``` directory contains five subdirectories, one for each build of the human genome that we have resources for: b36, b37, hg18, hg19 and hg38 (aka GRCh38). Here you can go to the hg19 folder and download related files, in our case, ```ucsc.hg19.fasta.gz```, ```ucsc.hg19.fasta.fai.gz``` and ```ucsc.hg19.dict.gz```.
 
 
 **ftp tool**
@@ -91,7 +91,7 @@ If you connected to the server, you will see something like below. You can use c
 ```
 
 
-You can use get command to download the file you need. Then you will get e.g. ucsc.hg19.fasta.gz, ucsc.hg19.fasta.fai.gz and ucsc.hg19.dict.gz.
+You can use ```get``` command to download the file you need. Then you will get e.g. ```ucsc.hg19.fasta.gz```, ```ucsc.hg19.fasta.fai.gz``` and ```ucsc.hg19.dict.gz```.
 
 ```
 get ucsc.hg19.fasta.gz
