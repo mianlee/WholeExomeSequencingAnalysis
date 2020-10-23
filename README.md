@@ -9,7 +9,7 @@
 
 1. 人类基因组中低频变异分析
 
- - 尤其是那些芯片平台中不涵盖的稀有变异
+- 尤其是那些芯片平台中不涵盖的稀有变异
 
 2.孟德尔单基因遗传病致病基因分析
 
@@ -25,12 +25,11 @@ conda install -y bcftools vcftools  snpeff
 conda install -y multiqc qualimap trim_galore
 
  
+# 建立gatk文件夹，然后从官网上找到下载链接地址用wget下载.
 
 mkdir -p Software/gatk4 && cd Sofeware/gatk4
 wget  https://github.com/broadinstitute/gatk/releases/download/4.1.9.0/gatk-4.1.9.0.zip
 unzip gatk-4.0.6.0.zip
-
-
 ```
 
 **sra-tools** : The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives, SRA (Sequence Read Archive).
