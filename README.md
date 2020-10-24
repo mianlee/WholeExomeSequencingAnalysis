@@ -114,5 +114,62 @@ mirror hg19
 
 
 
+## 第一步是QC
+
+包括使用fasqc和multiqc两个软件查看测序质量，以及使用trim_galore软件进行过滤低质量reads和去除接头。
+
+
+```
+mkdir ~/project/boy
+wkd=/home/jmzeng/project/boy
+mkdir {raw,clean,qc,align,mutation} #一次创建多个文件夹，将不同步骤处理的数据分别放置。
+cd qc 
+find /public/project/clinical/beijing_boy  -name *gz |grep -v '\._'|xargs fastqc -t 10 -o ./     # -t threads
+
+```
+
+假设质量很差就过滤
+
+```
+### step3: filter the bad quality reads and remove adaptors. 
+mkdir $wkd/clean 
+cd $wkd/clean
+
+find /public/project/clinical/beijing_boy  -name *gz |grep -v '\._'|grep 1.fastq.gz > 1
+find /public/project/clinical/beijing_boy  -name *gz |grep -v '\._'|grep 2.fastq.gz > 2
+paste 1 2  > config
+### 打开文件 qc.sh ，并且写入内容如下： 
+source activate wes
+
+bin_trim_galore=trim_galore
+dir=$wkd/clean
+cat config | while read id
+do
+        arr=(${id})
+        fq1=${arr[0]}
+        fq2=${arr[1]} 
+        echo  $dir  $fq1 $fq2 
+nohup $bin_trim_galore -q 25 --phred33 --length 36 -e 0.1 --stringency 3 --paired -o $dir $fq1 $fq2 & 
+done 
+
+source deactivate
+```
+
+## 读质量较好的测序数据进行比对
+
+
+BWA，即Burrows-Wheeler-Alignment Tool。BWA 是一种能够将差异度较小的序列比对到一个较大的参考基因组上的软件包。它由三个不同的算法：
+
+- BWA-backtrack: 是用来比对 Illumina 的序列的，reads 长度最长能到 100bp。-
+- BWA-SW: 用于比对 long-read ，支持的长度为 70bp-1Mbp；同时支持剪接性比对。
+- BWA-MEM: 推荐使用的算法，支持较长的read长度，同时支持剪接性比对（split alignments)，但是BWA-MEM是更新的算法，也更快，更准确，且 BWA-MEM 对于 70bp-100bp 的 Illumina 数据来说，效果也更好些。
+对于上述三种算法，首先需要使用索引命令构建参考基因组的索引，用于后面的比对。所以，使用BWA整个比对过程主要分为两步，第一步建索引，第二步使用BWA MEM进行比对。
+
+bwa的使用需要两中输入文件：
+
+- Reference genome data（fasta格式 .fa, .fasta, .fna）
+- Short reads data (fastaq格式 .fastaq, .fq)
+
+
 
 
