@@ -171,5 +171,4 @@ bwa的使用需要两中输入文件：
 - Short reads data (fastaq格式 .fastaq, .fq)
 
 
-
-
+[bam文件flag的释义](https://www.jianshu.com/p/57680d72a452)
